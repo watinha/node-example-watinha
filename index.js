@@ -1,7 +1,8 @@
 var http = require('http'),
     fs = require('fs'),
     server,
-    webpage404 = null;
+    webpage404 = null,
+    port = process.env.PORT || 3000;
 
 fs.readFile('static/404.html', function (err, data) {
     webpage404 = data;
@@ -26,4 +27,4 @@ server = http.createServer(function (req, res) {
         }
     });
 });
-server.listen(80);
+server.listen(port);
